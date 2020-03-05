@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-sanitize/angular-sanitize.js"></script>
+    <script src="./app.js" type="module"></script>
+    
+</head>
+<body ng-app="miApp" ng-controller="MainController as $ctrl" ng-cloak>
+        <header>
+            <!-- <h2>{{$ctrl.titulo}}</h2> -->
+            <h2 ng-bind-html="$ctrl.titulo">
+                <script>console.log("Soy el script legal")</script>
+            </h2>
+        </header>
+        <input type="text" placeholder="Dime una tarea" 
+            ng-model="$ctrl.tarea">
+        <button type="button" 
+            ng-click="$ctrl.addTarea()">Añadir</button>
+
+        <!-- <div ng-if="$ctrl.listaTareas.length"> -->
+        <div ng-show="$ctrl.listaTareas.length">
+            <h3>Lista de tareas</h3>
+            <ul>
+                <li ng-repeat="item in $ctrl.listaTareas track by $index">
+                    <input type="checkbox" 
+                        ng-change="$ctrl.changeTarea()"
+                        ng-model="item.isCompleted">
+                    <!-- <span>{{item.nombre}}</span> -->
+                    <span ng-class="{acabado: item.isCompleted}" ng-bind="item.nombre"></span>
+                    <span class="boton" ng-click='$ctrl.borraTarea($index)'>🚮</span>
+                </li>
+            </ul>            
+        </div>
+</body>
+</html>
