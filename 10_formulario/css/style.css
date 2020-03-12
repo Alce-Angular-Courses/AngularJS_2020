@@ -16,3 +16,7 @@ body {
 main {
     min-height: 60vh;
 }
+
+.error {
+    color: maroon;
+}
