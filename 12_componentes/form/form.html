@@ -11,7 +11,8 @@
         <li ng-repeat="item in $ctrl.tareas track by $index">
            <cas-tarea class="coloreado"
                 tarea="item" 
-                ev-borrar="$ctrl.borraTarea($index)">
+                ev-borrar="$ctrl.borraTarea($index)"
+                ev-change="$ctrl.actualizarTareas()">
             </cas-tarea>
         </li>
     </ul>            

@@ -4,7 +4,9 @@ import { FooterController } from './footer/footer.js'
 import { FormController } from './form/form.js'
 import { TareaController } from './tarea/tarea.js'
 
-angular.module('miApp', ['ngLocale'])
+angular.module('miApp', [
+    'ngLocale', 
+    'LocalStorageModule'])
 .controller('MainController', MainController)
 .component('casHeader', {
     templateUrl: './header/header.html',
@@ -23,6 +25,7 @@ angular.module('miApp', ['ngLocale'])
     controller: TareaController,
     bindings: {
         tarea: '<',
-        evBorrar: '&'
+        evBorrar: '&',
+        evChange: '&'
     }
 })

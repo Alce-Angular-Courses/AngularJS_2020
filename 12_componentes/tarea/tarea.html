@@ -1,5 +1,5 @@
 <input type="checkbox" 
-    ng-change="$ctrl.changeTarea()"
+    ng-change="$ctrl.evChange()"
     ng-model="$ctrl.tarea.isCompleted">
 <span ng-class="{acabado: $ctrl.tarea.isCompleted}">
     {{ $ctrl.tarea.nombre }}
